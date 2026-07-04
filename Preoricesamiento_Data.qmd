@@ -1,0 +1,71 @@
+
+## Crear celdas tipo Jupyter en VS Code
+
+Si tienes instalada la extensión de Quarto y la de Jupyter, puedes insertar una nueva celda de varias formas:
+
+```{python}
+import pandas as pd
+```
+```{python}
+data = {
+    "Nombre": ["Juan", "JOSE", "MariA", "pEDRO", "LUIS", None, "ana", "", None],
+    "Edad": ["29", 12, "??", None, "12 AÑOS", "doce", "23", "n/a", "125"],
+    "Peso": ["70kg", "65KG", " ? ", "100kg", "45", "1000kg", None, "55 kg", "60"],
+    "Altura": ["170cm", "1.65m", "2m", "1.5m", None, "22cm", "n/a", "145", "200cm"],
+    "País": ["México", "MEXICO", "mex", "USA", "Estados Unidos", "Colombia", "ARGENTINA", "RU", "ar"],
+    "IngresoMensual": ["50000", "20000", None, "-500", "15000", "60000", "200", "75000", "abc"]
+
+}
+
+df = pd.DataFrame(data)
+print(df)
+```
+
+```{python}
+print(df["Nombre"])
+```
+
+```{python}
+df.describe()
+```
+
+```{python}
+df["Nombre_Limpio"] = df["Nombre"]
+df["Nombre_Limpio"] = df["Nombre_Limpio"].fillna("") #Convertir valores None en valores str vacios
+df["Nombre_Limpio"] = df["Nombre_Limpio"].str.strip() #Elimina espacios vacíos
+df["Nombre_Limpio"] = df["Nombre_Limpio"].str.lower() #Conversión a minúscula para que todos los datos sean iguales
+df["Nombre_Limpio"] = df["Nombre_Limpio"].replace("", pd.NA)
+df["Nombre_Limpio"] = df["Nombre_Limpio"].fillna("desconocido")
+print(df[["Nombre", "Nombre_Limpio"]])
+ ```
+
+ ```{python}
+df["Edad_Limpio"] = df["Edad"]
+df["Edad_Limpio"] = df["Edad_Limpio"].astype(str) #Convierte a tipo de dato str
+df["Edad_Limpio"] = df["Edad_Limpio"].str.strip() #Quita espacios adelante y atras
+df["Edad_Limpio"] = df["Edad_Limpio"].str.replace("años", "", regex=False).str.strip()
+
+map_numeros = {
+    "cero":0, "uno":1, "dos":2, "tres":3, "cuatro":4, "cinco":5,
+    "seis":6, "siete":7, "ocho":8, "nueve":9, "diez":10, "once":11,
+    "doce":12, "trece":13, "catorce":14, "quince":15, "dieciseis":16,
+    "diecisiete":17, "dieciocho":18, "diecinueve":19, "veinte":20,
+    "treinta":30, "cuarenta":40, "cincuenta":50, "sesenta":60,
+    "setenta":70, "ochenta":80, "noventa":90, "cien":100
+}
+
+df["Edad_Limpio"] = df["Edad_Limpio"].replace(map_numeros) # Remplazo de palabras por números
+df["Edad_Limpio"] = pd.to_numeric(df["Edad_Limpio"], errors="coerce") # Conversión a número R
+
+#Restricción de valores que puede tomar la edad y convertir los valores que no cumplen en None
+df.loc[(df["Edad_Limpio"]<0) | (df["Edad_Limpio"]>100), "Edad_Limpio"]= None 
+#Llenar edades vacias con el promedio de edad
+df["Edad_Limpio"] = df["Edad_Limpio"].fillna(df["Edad_Limpio"].mean())
+
+print(df[["Edad_Limpio", "Edad"]])
+```
+
+
+```{python}
+print("Hola mundo")
+```
