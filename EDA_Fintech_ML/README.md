@@ -6,7 +6,7 @@
   <summary>Haz clic aquí para ver el Dashboard(E-R)</summary>
   <br>
   <p align="center">
-    <img src="./imagenes/dashboard.png" alt="dashboard" width="90%">
+    <img src="./img/dashboard.png" alt="dashboard" width="90%">
   </p>
 </details>
 
