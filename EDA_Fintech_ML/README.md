@@ -1,16 +1,14 @@
 # Análisis de Asignación de Lineas de Crédito en Power BI
 
 ```
-##  Dashboard
 <details>
 
-  <summary>Haz clic aquí para ver el Dashboard (E-R)</summary>
+  <summary>Haz clic aquí para ver el Dashboard(E-R)</summary>
   <br>
   <p align="center">
-    <img src="./img/dashboard.png" alt="Modelo Entidad-Relación" width="90%">
+    <img src="./imagenes/dashboard.png" alt="dashboard" width="90%">
   </p>
 </details>
----
 
 ## Objetivo del Proyecto:
 
