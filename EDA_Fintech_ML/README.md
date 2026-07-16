@@ -3,7 +3,7 @@
 ##  Modelos de la Base de Datos
 <details>
 
-  <summary>Haz clic aquí para ver el Modelo Entidad-Relación (E-R)</summary>
+  <summary>Haz clic aquí para ver el Dashboard(E-R)</summary>
   <br>
   <p align="center">
     <img src="img\dashboard.png" alt="Análisis de Líneas de Crédito" width="90%">
