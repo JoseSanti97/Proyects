@@ -1,6 +1,5 @@
 # Análisis de Asignación de Lineas de Crédito en Power BI
 
-##  Modelos de la Base de Datos
 <details>
 
   <summary>Haz clic aquí para ver el Dashboard</summary>
